@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB8FD5C1-DA14-4F14-93AC-F75C3068F058}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimulationPersonnage</RootNamespace>
+    <AssemblyName>SimulationPersonnage</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComportementAffichage\ComportementAffichage.cs" />
+    <Compile Include="ComportementAffichage\ComportementAffichageDefault.cs" />
+    <Compile Include="ComportementAffichage\ComportementAffichageNoble.cs" />
+    <Compile Include="ComportementCombat\ComportementCombatNinja.cs" />
+    <Compile Include="ComportementDeplace\ComportementDeplace.cs" />
+    <Compile Include="ComportementDeplace\ComportementDeplaceAcheval.cs" />
+    <Compile Include="ComportementDeplace\ComportementDeplaceApied.cs" />
+    <Compile Include="ComportementDeplace\ComportementDeplacementDiscret.cs" />
+    <Compile Include="Observateur\IObservateur.cs" />
+    <Compile Include="Observateur\Observable.cs" />
+    <Compile Include="Organisation.cs" />
+    <Compile Include="Personnage\Archer.cs" />
+    <Compile Include="Personnage\Chevalier.cs" />
+    <Compile Include="ComportementCombat\ComportementAcheval.cs" />
+    <Compile Include="ComportementCombat\ComportementApiedAvecHache.cs" />
+    <Compile Include="ComportementCombat\ComportementAvecArc.cs" />
+    <Compile Include="ComportementCombat\ComportementCombat.cs" />
+    <Compile Include="ComportementEmettreUnSon\ComportementCrier.cs" />
+    <Compile Include="ComportementEmettreUnSon\ComportementEmettreUnSon.cs" />
+    <Compile Include="ComportementEmettreUnSon\ComportementParler.cs" />
+    <Compile Include="ComportementEmettreUnSon\ComportementParlerPrincesse.cs" />
+    <Compile Include="Personnage\Fantassin.cs" />
+    <Compile Include="Personnage\Ninja.cs" />
+    <Compile Include="Personnage\Personnage.cs" />
+    <Compile Include="Personnage\Princesse.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

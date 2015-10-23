@@ -1,0 +1,6 @@
+c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\bin\Debug\SimulationPersonnage.exe.config
+c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\bin\Debug\SimulationPersonnage.exe
+c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\bin\Debug\SimulationPersonnage.pdb
+c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\obj\Debug\SimulationPersonnage.csprojResolveAssemblyReference.cache
+c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\obj\Debug\SimulationPersonnage.exe
+c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\obj\Debug\SimulationPersonnage.pdb
