@@ -68,8 +68,14 @@
     <Compile Include="Personnage\Ninja.cs" />
     <Compile Include="Personnage\Personnage.cs" />
     <Compile Include="Personnage\Princesse.cs" />
+    <Compile Include="PlateauFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Zone\FabriqueConcreteZone.cs" />
+    <Compile Include="Zone\FabriqueZone.cs" />
+    <Compile Include="Zone\ZoneInpraticable.cs" />
+    <Compile Include="Zone\ZonePraticable.cs" />
+    <Compile Include="Zone\Zone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
