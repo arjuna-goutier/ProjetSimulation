@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.AccessControl;
-using System.Security.Policy;
-using SimulationPersonnage.Acces;
-using SimulationPersonnage.Zone;
+﻿using System.Collections.Generic;
 
 namespace SimulationPersonnage
 {

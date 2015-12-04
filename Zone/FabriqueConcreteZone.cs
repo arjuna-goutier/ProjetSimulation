@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimulationPersonnage.Zone
 {
@@ -13,9 +9,9 @@ namespace SimulationPersonnage.Zone
             switch (type)
             {
                 case "Patricable":
-                    return new ZonePraticable(nom, true);
+                    return new ZonePraticable(nom);
                 case "Inpraticable":
-                    return new ZoneInpraticable(nom, false);
+                    return new ZoneInpraticable(nom);
                 default:
                     throw new ArgumentException("Invalid type", "type");
             }
