@@ -5,9 +5,4 @@ c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\Simulati
 c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\obj\Debug\SimulationPersonnage.exe
 c:\users\moi\documents\visual studio 2015\Projects\SimulationPersonnage\SimulationPersonnage\obj\Debug\SimulationPersonnage.pdb
 C:\Users\sarah\Source\Repos\ProjetSimulation2\bin\Debug\SimulationPersonnage.exe.config
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\bin\Debug\SimulationPersonnage.exe.config
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\bin\Debug\SimulationPersonnage.exe
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\bin\Debug\SimulationPersonnage.pdb
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\obj\Debug\SimulationPersonnage.csprojResolveAssemblyReference.cache
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\obj\Debug\SimulationPersonnage.exe
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\obj\Debug\SimulationPersonnage.pdb
+C:\Users\sarah\Source\Repos\ProjetSimulation2\obj\Debug\SimulationPersonnage.csprojResolveAssemblyReference.cache

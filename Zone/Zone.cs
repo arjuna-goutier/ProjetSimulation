@@ -1,15 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SimulationPersonnage.Zone
 {
     public abstract class Zone
     {
-        public string Nom { get; set; }
+        public String Nom { get; set; }
+        public bool IsAccessible { get; set; }
         public List<Personnage> Personnages;
 
-        public Zone(string nom)
+        public Zone(string nom, bool accessible)
         {
             Nom = nom;
+            IsAccessible = accessible;
         }
 
         public void AjouterPersonnage(Personnage personnage)
