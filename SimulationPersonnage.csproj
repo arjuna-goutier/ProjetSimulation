@@ -44,6 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acces\Acces.cs" />
+    <Compile Include="Acces\AccesImpraticable.cs" />
+    <Compile Include="Acces\AccesPraticable.cs" />
+    <Compile Include="Acces\FabriqueAcces.cs" />
+    <Compile Include="Acces\FabriqueConcreteAcces.cs" />
     <Compile Include="ComportementAffichage\ComportementAffichage.cs" />
     <Compile Include="ComportementAffichage\ComportementAffichageDefault.cs" />
     <Compile Include="ComportementAffichage\ComportementAffichageNoble.cs" />

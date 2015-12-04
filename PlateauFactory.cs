@@ -1,51 +1,61 @@
-﻿using System.Security.AccessControl;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.AccessControl;
 using System.Security.Policy;
+using SimulationPersonnage.Acces;
+using SimulationPersonnage.Zone;
 
 namespace SimulationPersonnage
 {
     public interface IPlateauFactory
     {
-        IAcces CreerAcces();
-        IZone CreerZone();
-        IPlateau CreerPlateau();
+        PlateauDeJeuAbstrait CreerPlateau();
     }
 
-    public interface IAcces
+    public class LabyrintheFactory : IPlateauFactory
     {
+        PlateauDeJeuAbstrait IPlateauFactory.CreerPlateau()
+            => new PlateauDeJeu();
     }
 
-    public interface IZone
+    public abstract class PlateauDeJeuAbstrait
     {
+        List<Zone.Zone> ListZones { get; set; }
+        List<Acces.Acces> ListAcces { get; set; }
+
+        public abstract void AjouterZone(Zone.Zone zone);
+        public abstract void AjouterAcce(Acces.Acces acces);
     }
 
-    public interface IPlateau
+    public class PlateauDeJeu : PlateauDeJeuAbstrait
     {
-    }
+        List<Acces.Acces> ListAcces;
+        List<Zone.Zone> ListZones;
 
-    public class FourmillereFactory : IPlateauFactory
-    {
-        IAcces IPlateauFactory.CreerAcces()
-            => new Tunnel();
+        public PlateauDeJeu()
+        {
+            ListAcces = new List<Acces.Acces>();
+            ListZones = new List<Zone.Zone>();
+        }
 
-        IZone IPlateauFactory.CreerZone()
-            => new Salle();
-        
-        IPlateau IPlateauFactory.CreerPlateau()
-            => new Fourmillere();
-    }
+        public List<Acces.Acces> getListAcces()
+        {
+            return ListAcces;
+        }
 
-    public class Fourmillere:IPlateau
-    {
-        
-    }
+        public List<Zone.Zone> getListZone()
+        {
+            return ListZones;
+        }
 
-    public class Salle:IZone
-    {
-        
-    }
+        public override void AjouterAcce(Acces.Acces acces)
+        {
+            ListAcces.Add(acces);
+        }
 
-    public class Tunnel:IAcces
-    {
-        
+        public override void AjouterZone(Zone.Zone zone)
+        {
+            ListZones.Add(zone);
+        }
     }
 }
