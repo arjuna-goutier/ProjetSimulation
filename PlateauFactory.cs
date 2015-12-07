@@ -1,56 +1,51 @@
-﻿using System.Collections.Generic;
+﻿using System.Security.AccessControl;
+using System.Security.Policy;
 
 namespace SimulationPersonnage
 {
     public interface IPlateauFactory
     {
-        PlateauDeJeuAbstrait CreerPlateau();
+        IAcces CreerAcces();
+        IZone CreerZone();
+        IPlateau CreerPlateau();
     }
 
-    public class LabyrintheFactory : IPlateauFactory
+    public interface IAcces
     {
-        PlateauDeJeuAbstrait IPlateauFactory.CreerPlateau()
-            => new PlateauDeJeu();
     }
 
-    public abstract class PlateauDeJeuAbstrait
+    public interface IZone
     {
-        List<Zone.Zone> ListZones { get; set; }
-        List<Acces.Acces> ListAcces { get; set; }
-
-        public abstract void AjouterZone(Zone.Zone zone);
-        public abstract void AjouterAcce(Acces.Acces acces);
     }
 
-    public class PlateauDeJeu : PlateauDeJeuAbstrait
+    public interface IPlateau
     {
-        List<Acces.Acces> ListAcces;
-        List<Zone.Zone> ListZones;
+    }
 
-        public PlateauDeJeu()
-        {
-            ListAcces = new List<Acces.Acces>();
-            ListZones = new List<Zone.Zone>();
-        }
+    public class FourmillereFactory : IPlateauFactory
+    {
+        IAcces IPlateauFactory.CreerAcces()
+            => new Tunnel();
 
-        public List<Acces.Acces> getListAcces()
-        {
-            return ListAcces;
-        }
+        IZone IPlateauFactory.CreerZone()
+            => new Salle();
+        
+        IPlateau IPlateauFactory.CreerPlateau()
+            => new Fourmillere();
+    }
 
-        public List<Zone.Zone> getListZone()
-        {
-            return ListZones;
-        }
+    public class Fourmillere:IPlateau
+    {
+        
+    }
 
-        public override void AjouterAcce(Acces.Acces acces)
-        {
-            ListAcces.Add(acces);
-        }
+    public class Salle:IZone
+    {
+        
+    }
 
-        public override void AjouterZone(Zone.Zone zone)
-        {
-            ListZones.Add(zone);
-        }
+    public class Tunnel:IAcces
+    {
+        
     }
 }
