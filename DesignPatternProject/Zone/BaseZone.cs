@@ -24,6 +24,7 @@ namespace SimulationPersonnage.Zone
         public string Nom { get; set; }
         public List<Personnage> Personnages { get; set; } = new List<Personnage>();
 
+
         protected BaseZone(string nom)
         {
             Nom = nom;
