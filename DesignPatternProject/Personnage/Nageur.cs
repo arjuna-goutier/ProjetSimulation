@@ -15,17 +15,25 @@ namespace SimulationPersonnage
         public void Arriver()
             => ComportementDeplace = new ComportemenImmobile();
         
-        private IList<Modifieur<int>> Modifieurs { get; } = new List<Modifieur<int>>();
+        private IList<Modifieur<int>> Mofifieurs { get; } = new List<Modifieur<int>>();
 
-        private int BaseVitesse { get; } = 2;
-
-        public int Vitesse
-            => Modifieurs.Appliquer(BaseVitesse);
+        public int Vitesse { get; set; } = 10;
 
         public Nageur(string nom) : base(nom, null)
         {
             ComportementDeplace = new ComportemenImmobile();
         }
+        public void généré_bonus(int bonus)
+        {
+            Vitesse=+ bonus;
+        }
+
+        public void réintialisé()
+        {
+            Vitesse = 10;
+
+        }
+
     }
 
     static class BonusesHelper

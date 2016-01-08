@@ -5,3 +5,6 @@ C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\bin\Debug\Desig
 C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\obj\Debug\DesignPatternProject.csprojResolveAssemblyReference.cache
 C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\obj\Debug\DesignPatternProject.exe
 C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
+C:\Users\ghersi cherifa\Source\Repos\ProjetSimulation\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\ghersi cherifa\Source\Repos\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.exe
+C:\Users\ghersi cherifa\Source\Repos\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
