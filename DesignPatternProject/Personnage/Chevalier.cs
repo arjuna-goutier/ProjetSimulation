@@ -6,7 +6,6 @@
         {
             ComportementCombat = new ComportementAcheval();
             ComportementEmettreUnSon = new ComportementParler();
-            ComportementDeplace = new ComportementDeplaceAcheval();
             ComportementAffichage = new ComportementAffichageNoble();
         }
 
@@ -14,7 +13,6 @@
         {
             var result = base.Combat();
             ComportementCombat = new ComportementApiedAvecHache();
-            ComportementDeplace = new ComportementDeplaceApied();
             return result;
         }
     }

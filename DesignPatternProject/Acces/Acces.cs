@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesignPatternProject.Zone;
 using SimulationPersonnage.Zone;
 
 
@@ -13,13 +14,7 @@ namespace SimulationPersonnage.Acces
         string Nom { get; set; }
         IZone ZoneFrom { get; set; }
         IZone ZoneTo { get; set; }
-    }
-
-    public interface CopyOfIAcces
-    {
-        string Nom { get; set; }
-        IZone ZoneFrom { get; set; }
-        IZone ZoneTo { get; set; }
+        IZone Other(IZone zone);
     }
 
     public class Acces:IAcces
@@ -28,11 +23,19 @@ namespace SimulationPersonnage.Acces
         public IZone ZoneFrom { get; set; }
         public IZone ZoneTo { get; set; }
 
-        protected Acces(string nom, IZone zoneFrom, IZone zoneTo)
+        public IZone Other(IZone zone)
         {
-            this.Nom = nom;
-            this.ZoneFrom = zoneFrom;
-            this.ZoneTo = zoneTo;
+            if (ZoneFrom == zone)
+                return ZoneTo;
+            if (ZoneTo == zone)
+                return ZoneFrom;
+            return null;
+        }
+
+        protected Acces(IZone zoneFrom, IZone zoneTo)
+        {
+            ZoneFrom = zoneFrom;
+            ZoneTo = zoneTo;
         }
     }
 }

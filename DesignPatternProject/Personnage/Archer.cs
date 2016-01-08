@@ -6,7 +6,6 @@
         {
             ComportementCombat = new ComportementAvecArc();
             ComportementEmettreUnSon = new ComportementCrier();
-            ComportementDeplace = new ComportementDeplaceApied();
             ComportementAffichage  = new ComportementAffichageHumble();
         }
     }

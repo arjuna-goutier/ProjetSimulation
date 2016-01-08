@@ -5,7 +5,6 @@
         public Ninja(string nom, Organisation etatMajor) : base(nom, etatMajor)
         {
             ComportementCombat = new ComportementCombatNinja();
-            ComportementDeplace = new ComportementDeplacementDiscret();
         }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SimulationPersonnage.Zone
 {
-    class ZoneImpraticable : Zone
+    public class BaseZonePraticable : BaseZone
     {
-        public ZoneImpraticable(string nom):base(nom)
+        public BaseZonePraticable(string nom) : base(nom)
         {
 
         }
 
         public override string Description
-                => "Zone Inpraticable";
+            => "Zone Praticable";
     }
 }

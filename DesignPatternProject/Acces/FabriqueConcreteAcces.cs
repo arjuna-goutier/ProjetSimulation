@@ -14,7 +14,7 @@ namespace SimulationPersonnage.Acces
             switch (type) 
             {
                 case "Patricable":
-                    return new AccesPraticable(nom, zoneFrom, zoneTo );
+                    return new AccesPraticable(zoneFrom, zoneTo );
                 case "Impraticable":
                     return new AccesImpraticable(nom, zoneFrom, zoneTo);
                 default:

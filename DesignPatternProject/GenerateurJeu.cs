@@ -63,6 +63,7 @@ namespace SimulationPersonnage
         {
             plateau.AjouterZone(fabriqueZone.CreerZone(readed["Nom"], readed["Type"]));
         }
+
         private void AjouterAcces(IPlateau plateau, IReaded readed)
         {
             var from = FindByName(plateau, readed["from"]);
@@ -116,11 +117,9 @@ namespace SimulationPersonnage
             ObjectType = objectType;
             this.keys = keys;
         }
-
-        
+                
         public string this[string key]
             => keys[key];
-
     }
 
 

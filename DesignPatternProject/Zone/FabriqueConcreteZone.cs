@@ -9,9 +9,9 @@ namespace SimulationPersonnage.Zone
             switch (type)
             {
                 case "Patricable":
-                    return new ZonePraticable(nom);
+                    return new BaseZonePraticable(nom);
                 case "Impraticable":
-                    return new ZoneImpraticable(nom);
+                    return new BaseZoneImpraticable(nom);
                 default:
                     throw new ArgumentException("Invalid type", "type");
             }

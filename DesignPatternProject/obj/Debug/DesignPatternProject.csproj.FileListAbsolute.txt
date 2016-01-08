@@ -1,1 +1,7 @@
 c:\users\moi\documents\visual studio 2015\Projects\DesignPatternProject\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\bin\Debug\DesignPatternProject.exe
+C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\bin\Debug\DesignPatternProject.pdb
+C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\obj\Debug\DesignPatternProject.csprojResolveAssemblyReference.cache
+C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\obj\Debug\DesignPatternProject.exe
+C:\Users\Moi\Source\Repos\ProjetSimulation2\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
