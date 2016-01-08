@@ -10,6 +10,7 @@ namespace SimulationPersonnage
     {
         void Commencer();
     }
+
     class SimulationDeJeux:ISimulation
     {
         public void Commencer()

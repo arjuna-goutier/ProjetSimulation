@@ -16,7 +16,7 @@ namespace DesignPatternProject
         {
             foreach (var participant in participants)
             {
-                participant.Commencer();
+                participant.Commencer(5);
             }
         }
     }

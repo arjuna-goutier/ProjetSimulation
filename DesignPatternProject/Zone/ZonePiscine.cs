@@ -1,4 +1,5 @@
-﻿using SimulationPersonnage.Zone;
+﻿using System.Linq;
+using SimulationPersonnage.Zone;
 
 namespace DesignPatternProject.Zone
 {

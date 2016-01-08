@@ -9,18 +9,18 @@ namespace SimulationPersonnage
 
     class Nageur:Personnage
     {
-        public void Commencer()
-            => ComportementDeplace = new ComportementNage();
+        public void Commencer(int nombreTour)
+            => ComportementDeplace = new ComportementNage(nombreTour);
         
         public void Arriver()
             => ComportementDeplace = new ComportemenImmobile();
         
-        private IList<Modifieur<int>> Mofifieurs { get; } = new List<Modifieur<int>>();
+        private IList<Modifieur<int>> Modifieurs { get; } = new List<Modifieur<int>>();
 
-        private int BaseVitesse { get; } = 100;
+        private int BaseVitesse { get; } = 2;
 
         public int Vitesse
-            => Mofifieurs.Appliquer(BaseVitesse);
+            => Modifieurs.Appliquer(BaseVitesse);
 
         public Nageur(string nom) : base(nom, null)
         {

@@ -31,14 +31,12 @@ namespace DesignPatternProject
                 zones.Add(zone);
             }
             nageur.Position = zones.First();
-
-
-            Console.WriteLine(nageur.Position.Nom);
-            nageur.Commencer();
-            nageur.SeDeplacer();
-            Console.WriteLine(nageur.Position.Nom);
-            nageur.SeDeplacer();
-            Console.WriteLine(nageur.Position.Nom);
+            nageur.Commencer(5);
+            foreach (var i in Enumerable.Range(1,10000))
+            {
+                nageur.SeDeplacer();
+            }
+            Console.Read();
         }
     }
 }

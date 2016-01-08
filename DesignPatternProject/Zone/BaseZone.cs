@@ -14,12 +14,12 @@ namespace SimulationPersonnage.Zone
         string Nom { get; set; }
         void AjouterPersonnage(Personnage personnage);
         void SupprimerPersonnage(Personnage personnage);
-        IList<IAcces> Access { get; set; }
         IEnumerable<IZone> ZoneLimitrophe { get; }
-        TAcces LinkTo<TAcces>(IZone other) where  TAcces :  IAcces;
+        IList<IAcces> Access { get; }
+        void LinkTo<TCreated>(IZone other) where TCreated : IAcces;
     }
 
-    public abstract class BaseZone:IZone
+    public abstract class BaseZone: IZone
     {
         public string Nom { get; set; }
         public List<Personnage> Personnages { get; set; } = new List<Personnage>();
@@ -42,15 +42,16 @@ namespace SimulationPersonnage.Zone
         public IEnumerable<IZone> ZoneLimitrophe
             => Access.Select(acces => acces.Other(this));
 
-        public TAcces LinkTo<TAcces>(IZone other) where TAcces : IAcces
+        public void LinkTo<TCreated>(IZone other) where TCreated : IAcces
         {
-            var v = (TAcces) Activator.CreateInstance(typeof(TAcces), this, other);
+            var v = (TCreated) Activator.CreateInstance(typeof(TCreated), this, other);
             other.Access.Add(v);
             this.Access.Add(v);
-            return v;
         }
 
-        public IList<IAcces> Access { get; set; } = new List<IAcces>();
+        private readonly IList<IAcces> access = new List<IAcces>();
+        public IList<IAcces> Access
+            => access;
         public abstract string Description { get; }
     }
 }
