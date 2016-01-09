@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using SimulationPersonnage.Acces;
 
 namespace SimulationPersonnage.Zone
 {
@@ -11,14 +14,18 @@ namespace SimulationPersonnage.Zone
         string Nom { get; set; }
         void AjouterPersonnage(Personnage personnage);
         void SupprimerPersonnage(Personnage personnage);
+        IEnumerable<IZone> ZoneLimitrophe { get; }
+        IList<IAcces> Access { get; }
+        void LinkTo<TCreated>(IZone other) where TCreated : IAcces;
     }
 
-    public abstract class Zone:IZone
+    public abstract class BaseZone: IZone
     {
         public string Nom { get; set; }
         public List<Personnage> Personnages { get; set; } = new List<Personnage>();
 
-        protected Zone(string nom)
+
+        protected BaseZone(string nom)
         {
             Nom = nom;
         }
@@ -33,6 +40,19 @@ namespace SimulationPersonnage.Zone
             Personnages.Remove(personnage);
         }
 
+        public IEnumerable<IZone> ZoneLimitrophe
+            => Access.Select(acces => acces.Other(this));
+
+        public void LinkTo<TCreated>(IZone other) where TCreated : IAcces
+        {
+            var v = (TCreated) Activator.CreateInstance(typeof(TCreated), this, other);
+            other.Access.Add(v);
+            this.Access.Add(v);
+        }
+
+        private readonly IList<IAcces> access = new List<IAcces>();
+        public IList<IAcces> Access
+            => access;
         public abstract string Description { get; }
     }
 }

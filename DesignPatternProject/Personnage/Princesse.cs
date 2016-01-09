@@ -5,7 +5,6 @@
         public Princesse(string nom,Organisation organisation) : base(nom, organisation)
         {
             ComportementEmettreUnSon = new ComportementParlerPrincesse();
-            ComportementDeplace = new ComportementDeplaceApied();
             ComportementAffichage = new ComportementAffichageNoble();
         }
     }

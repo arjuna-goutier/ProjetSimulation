@@ -1,6 +1,8 @@
-﻿namespace SimulationPersonnage
+﻿using SimulationPersonnage.Zone;
+
+namespace SimulationPersonnage
 {
-    public abstract class Personnage:IObservateur<Etat>
+    public abstract class Personnage:Observable, IObservateur<Etat>,IPositionnable
     {
         public string Nom { get; }
         public Etat Etat { get; set; }
@@ -9,6 +11,7 @@
         public IComportementCombat ComportementCombat { get; set; }
         public IComportementDeplace ComportementDeplace { get; set; }
         public IComportementAffichage ComportementAffichage { get; set; }
+        public IZone Position { get; set; }
 
         protected Personnage(string nom, Organisation etatMajor)
         {
@@ -26,10 +29,15 @@
         public string EmettreSon()
             => ComportementEmettreUnSon?.EmettreUnSon() ?? "Je ne peut pas parler";
 
-        public string SeDeplacer()
-            => ComportementDeplace?.Deplace() ?? "Je ne peut pas me deplacer";
+        public void SeDeplacer()
+            => ComportementDeplace?.Deplace(this);
 
         public void Update(Etat etat)
             => Etat = etat;
+    }
+
+    public interface IPositionnable
+    {
+        IZone Position { get; set; }
     }
 }

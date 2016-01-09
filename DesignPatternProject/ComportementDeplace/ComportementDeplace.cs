@@ -2,6 +2,6 @@
 {
     public interface IComportementDeplace
     {
-        string Deplace();
+        void Deplace(Personnage personnage);
     }
 }

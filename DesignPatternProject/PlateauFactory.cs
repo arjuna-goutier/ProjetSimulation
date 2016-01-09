@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using SimulationPersonnage.Acces;
 using SimulationPersonnage.Zone;
+using System;
+using System.Linq;
 
 namespace SimulationPersonnage
 {
@@ -23,10 +25,11 @@ namespace SimulationPersonnage
         IEnumerable<IZone> ListZones { get; }
     }
 
-    public class PlateauDeJeu:IPlateau
+    public class PlateauDeJeu : IPlateau
     {
         private List<IAcces> listAcces { get; } = new List<IAcces>();
         private List<IZone> listZones { get; } = new List<IZone>();
+        protected List<Personnage> listPersonage { get; } = new List <Personnage>();
         public IEnumerable<IAcces> ListAcces 
             => listAcces;
         public IEnumerable<IZone> ListZones 
@@ -36,5 +39,6 @@ namespace SimulationPersonnage
         
         public void AjouterZone(IZone zone)
             => listZones.Add(zone);
+       
     }
 }

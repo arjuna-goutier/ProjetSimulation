@@ -65,13 +65,11 @@
     <Compile Include="ComportementCombat\ComportementCombat.cs" />
     <Compile Include="ComportementCombat\ComportementCombatNinja.cs" />
     <Compile Include="ComportementDeplace\ComportementDeplace.cs" />
-    <Compile Include="ComportementDeplace\ComportementDeplaceAcheval.cs" />
-    <Compile Include="ComportementDeplace\ComportementDeplaceApied.cs" />
-    <Compile Include="ComportementDeplace\ComportementDeplacementDiscret.cs" />
     <Compile Include="ComportementEmettreUnSon\ComportementCrier.cs" />
     <Compile Include="ComportementEmettreUnSon\ComportementEmettreUnSon.cs" />
     <Compile Include="ComportementEmettreUnSon\ComportementParler.cs" />
     <Compile Include="ComportementEmettreUnSon\ComportementParlerPrincesse.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="Fabrique\BaseFabriqueSimulation.cs" />
     <Compile Include="Fabrique\FabriqueLabyrinthe.cs" />
     <Compile Include="Fabrique\FabriqueNatation.cs" />
@@ -87,9 +85,12 @@
     <Compile Include="Organisation.cs" />
     <Compile Include="Personnage\Archer.cs" />
     <Compile Include="Personnage\Chevalier.cs" />
+    <Compile Include="ComportementDeplace\ComportementNage.cs" />
+    <Compile Include="ComportementDeplace\ComportemenImmobile.cs" />
     <Compile Include="Personnage\FabriquePersonnage.cs" />
     <Compile Include="Personnage\Fantassin.cs" />
     <Compile Include="Personnage\HumainFantome.cs" />
+    <Compile Include="Personnage\Nageur.cs" />
     <Compile Include="Personnage\Ninja.cs" />
     <Compile Include="Personnage\Personnage.cs" />
     <Compile Include="Personnage\Princesse.cs" />
@@ -102,9 +103,10 @@
     </Compile>
     <Compile Include="Zone\FabriqueConcreteZone.cs" />
     <Compile Include="Zone\FabriqueZone.cs" />
-    <Compile Include="Zone\Zone.cs" />
-    <Compile Include="Zone\ZoneImpraticable.cs" />
-    <Compile Include="Zone\ZonePraticable.cs" />
+    <Compile Include="Zone\BaseZone.cs" />
+    <Compile Include="Zone\BaseZoneImpraticable.cs" />
+    <Compile Include="Zone\ZonePiscine.cs" />
+    <Compile Include="Zone\BaseZonePraticable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
