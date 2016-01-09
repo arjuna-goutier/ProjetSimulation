@@ -89,9 +89,8 @@ namespace DesignPatternProject
                 }
             }
 
-            SimulationPersonnage.Personnage p = new SimulationPersonnage.Ninja("Pierre", new SimulationPersonnage.Organisation("gg"));
-
-            zones[0][17].AjouterPersonnage(p);
+            //SimulationPersonnage.Personnage p = new SimulationPersonnage.Ninja("Pierre", new SimulationPersonnage.Organisation("gg"));
+            //zones[0][17].AjouterPersonnage(p);
 
             return zones;
         }

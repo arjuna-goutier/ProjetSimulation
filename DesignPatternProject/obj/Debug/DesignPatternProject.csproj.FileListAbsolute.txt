@@ -5,8 +5,6 @@ C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternP
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\MyApp.g.cs
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject_MarkupCompile.cache
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject.g.resources
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.exe
-C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.pdb
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject.exe
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
+C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
