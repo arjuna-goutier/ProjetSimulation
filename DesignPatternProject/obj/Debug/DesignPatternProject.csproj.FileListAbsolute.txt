@@ -8,3 +8,5 @@ C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternP
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject.exe
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.exe
+C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\bin\Debug\DesignPatternProject.pdb

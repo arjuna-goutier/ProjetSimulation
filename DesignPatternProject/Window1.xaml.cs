@@ -125,9 +125,9 @@ namespace DesignPatternProject
                 {
                     Rectangle rectangle = new Rectangle();
 
-                    if (zones[i][j].GetType().Name == "ZonePraticable")
+                    if (zones[i][j].GetType().Name == "BaseZonePraticable")
                     {
-                        if (!zones[i][j].isPersonnagesEmtpy())
+                        if (zones[i][j].isPersonnagesEmtpy() != 0)
                         {
                             Canvas canvas = new Canvas();
                             canvas.Background = new SolidColorBrush(Colors.Aquamarine);

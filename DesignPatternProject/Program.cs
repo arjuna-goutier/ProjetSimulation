@@ -12,15 +12,15 @@ namespace DesignPatternProject
 {
     class Program
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
-            /*
-            var reader = new BaseSimulationReader();
-            reader.FabriqueSimulation();
-            var generateur = new GenerateurJeu();
-            reader.AddElement(new Readed(ESimulationObjectType.Acces, null));
-            var i = generateur.GenererJeux(reader);
-            */
+            
+            //var reader = new BaseSimulationReader();
+            //reader.FabriqueSimulation();
+            //var generateur = new GenerateurJeu();
+            //reader.AddElement(new Readed(ESimulationObjectType.Acces, null));
+            //var i = generateur.GenererJeux(reader);
+            
             var nageur = new Nageur("Tom");
             var zones = new List<IZone>();
             foreach (var value in Enumerable.Range(1, 10))
@@ -37,6 +37,6 @@ namespace DesignPatternProject
                 nageur.SeDeplacer();
             }
             Console.Read();
-        }
+        }*/
     }
 }

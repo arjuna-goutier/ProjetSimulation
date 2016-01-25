@@ -17,7 +17,7 @@ namespace SimulationPersonnage.Zone
         IEnumerable<IZone> ZoneLimitrophe { get; }
         IList<IAcces> Access { get; }
         void LinkTo<TCreated>(IZone other) where TCreated : IAcces;
-        bool isPersonnagesEmtpy();
+        int isPersonnagesEmtpy();
     }
 
     public abstract class BaseZone: IZone
@@ -51,9 +51,9 @@ namespace SimulationPersonnage.Zone
             this.Access.Add(v);
         }
 
-        public bool isPersonnagesEmtpy()
+        public int isPersonnagesEmtpy()
         {
-            return Personnages.Count() != 0;
+            return Personnages.Count();
         }
 
         private readonly IList<IAcces> access = new List<IAcces>();
