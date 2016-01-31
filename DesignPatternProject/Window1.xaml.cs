@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System;
 
 namespace DesignPatternProject
 {
@@ -155,21 +156,10 @@ namespace DesignPatternProject
                     }
                     else
                     {
-                        if (j % 2 != 0)
-                        {
-                            rectangle.Fill = new SolidColorBrush(Colors.DimGray);
-
-                            Grid.SetColumn(rectangle, j);
-                            Grid.SetRow(rectangle, i);
-                            PlateauGrid.Children.Add(rectangle);
-                        } else
-                        {
-                            rectangle.Fill = new SolidColorBrush(Colors.Salmon);
-
-                            Grid.SetColumn(rectangle, j);
-                            Grid.SetRow(rectangle, i);
-                            PlateauGrid.Children.Add(rectangle);
-                        }
+                        rectangle.Fill = new SolidColorBrush(Colors.DimGray);
+                        Grid.SetColumn(rectangle, j);
+                        Grid.SetRow(rectangle, i);
+                        PlateauGrid.Children.Add(rectangle);
                     }
                 }
             }

@@ -8,10 +8,10 @@ namespace DesignPatternProject
 
     public partial class app : Application
     {
-        void AppStartup(object sender, StartupEventArgs args)
+        /*void AppStartup(object sender, StartupEventArgs args)
         {
             Window1 mainWindow = new Window1();
             mainWindow.Show();
-        }
+        }*/
     }
 }

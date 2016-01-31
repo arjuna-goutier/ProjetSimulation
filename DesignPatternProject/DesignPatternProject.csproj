@@ -76,6 +76,9 @@
     <Compile Include="Fabrique\FabriquePlateauDeJeuAbstrait.cs" />
     <Compile Include="Fabrique\FabriqueTraficRoutier.cs" />
     <Compile Include="GenerateurJeu.cs" />
+    <Compile Include="InitWindow.xaml.cs">
+      <DependentUpon>InitWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyApp.xaml.cs">
       <DependentUpon>MyApp.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,9 @@
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Zone\FabriqueConcreteZone.cs" />
     <Compile Include="Zone\FabriqueZone.cs" />
     <Compile Include="Zone\BaseZone.cs" />
@@ -117,7 +123,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="InitWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
