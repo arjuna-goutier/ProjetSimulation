@@ -96,6 +96,7 @@ namespace DesignPatternProject
 
                 if (i == NageursNb - 1)
                     continue;
+
                 var listeZoneImpraticable = new List<IZone>();
                 for (var j = 0; j < NombreCase; j++)
                 {
@@ -109,9 +110,6 @@ namespace DesignPatternProject
                 zones.Add(listeZoneImpraticable);
             }
 
-            //SimulationPersonnage.Personnage p = new SimulationPersonnage.Ninja("Pierre", new SimulationPersonnage.Organisation("gg"));
-            //zones[0][17].AjouterPersonnage(p);
-
             return zones;
         }
 
@@ -124,6 +122,14 @@ namespace DesignPatternProject
                 });
 
                 if (k == NageursNb - 1) continue;
+                /*if (k == NageursNb - 1)
+                {
+                    PlateauGrid.RowDefinitions.Add(new RowDefinition
+                    {
+                        Height = new GridLength(0.8, GridUnitType.Star)
+                    });
+                }*/
+
                 PlateauGrid.RowDefinitions.Add(new RowDefinition {
                     Height = new GridLength(0.2, GridUnitType.Star)
                 });
@@ -176,12 +182,31 @@ namespace DesignPatternProject
                             PlateauGrid.Children.Add(rectangle);
                         }
                     }
-                    else
+                    else if (zones[i][j] is ZoneSeparation)
                     {
                         rectangle.Fill = new SolidColorBrush(Colors.DimGray);
                         Grid.SetColumn(rectangle, j);
                         Grid.SetRow(rectangle, i);
                         PlateauGrid.Children.Add(rectangle);
+                    }
+                    else
+                    {
+                        var canvas = new Canvas {
+                            Background = new SolidColorBrush(Colors.LightYellow)
+                        };
+                        var ellipse = new Ellipse {
+                            Fill = new SolidColorBrush(Colors.Green),
+                            Width = 15,
+                            Height = 15
+                        };
+
+                        Canvas.SetLeft(ellipse, 20);
+                        Canvas.SetTop(ellipse, 25);
+                        canvas.Children.Add(ellipse);
+
+                        Grid.SetColumn(canvas, j);
+                        Grid.SetRow(canvas, i);
+                        PlateauGrid.Children.Add(canvas);
                     }
                 }
             }
