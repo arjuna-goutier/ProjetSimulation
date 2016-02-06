@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
 namespace SimulationPersonnage
 {
     interface IPersonneFactory
@@ -27,14 +27,14 @@ namespace SimulationPersonnage
     }
     class Humain:Personnage
     {
-        public Humain(string Nom):base(Nom, null)
+        public Humain(string Nom):base(Nom)
         {
             
         }
     }
     class Fantome:Personnage
     {
-        public Fantome(string Nom) : base(Nom, null)
+        public Fantome(string Nom) : base(Nom)
         {
             
         }
@@ -47,4 +47,4 @@ namespace SimulationPersonnage
             Source = source;
         }
     }
-}
+}*/

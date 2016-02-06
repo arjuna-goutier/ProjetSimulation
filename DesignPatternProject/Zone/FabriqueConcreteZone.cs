@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SimulationPersonnage.Zone
 {
     class FabriqueConcreteZone : IFabriqueZone
     {
-        public IZone CreerZone(string type, string nom)
+        public virtual IZone CreerZone(IDictionary<string,string> arguments)
         {
-            switch (type)
+            switch (arguments["type"])
             {
-                case "Patricable":
-                    return new BaseZonePraticable(nom);
+                case "Praticable":
+                    return new BaseZonePraticable(arguments["nom"], int.Parse(arguments["x"]), int.Parse(arguments["y"]));
                 case "Impraticable":
-                    return new BaseZoneImpraticable(nom);
+                    return new BaseZoneImpraticable(arguments["nom"], int.Parse(arguments["x"]), int.Parse(arguments["y"]));
                 default:
                     throw new ArgumentException("Invalid type", "type");
             }

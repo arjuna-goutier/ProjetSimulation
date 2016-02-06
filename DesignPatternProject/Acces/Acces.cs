@@ -17,7 +17,7 @@ namespace SimulationPersonnage.Acces
         IZone Other(IZone zone);
     }
 
-    public class Acces:IAcces
+    class Acces:IAcces
     {
         public string Nom { get; set; }
         public IZone ZoneFrom { get; set; }
@@ -32,10 +32,13 @@ namespace SimulationPersonnage.Acces
             return null;
         }
 
-        protected Acces(IZone zoneFrom, IZone zoneTo)
+        protected Acces(string nom, IZone zoneFrom, IZone zoneTo)
         {
+            this.Nom = nom;
             ZoneFrom = zoneFrom;
             ZoneTo = zoneTo;
+            zoneFrom.Access.Add(this);
+            zoneTo.Access.Add(this);
         }
     }
 }

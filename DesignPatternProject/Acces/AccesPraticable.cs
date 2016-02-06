@@ -9,7 +9,7 @@ namespace SimulationPersonnage.Acces
 {
     class AccesPraticable : Acces 
     {
-        public AccesPraticable(IZone zoneFrom, IZone zoneTo): base(zoneFrom, zoneTo)
+        public AccesPraticable(string nom, IZone zoneFrom, IZone zoneTo): base(nom, zoneFrom, zoneTo)
         {
 
         }

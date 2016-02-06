@@ -1,6 +1,6 @@
 ﻿namespace SimulationPersonnage
 {
-    public class ComportemenImmobile : IComportementDeplace
+    class ComportemenImmobile : IComportementDeplace
     {
         public void Deplace(Personnage personnage)
         {

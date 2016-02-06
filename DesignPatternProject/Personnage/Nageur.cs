@@ -1,46 +1,40 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using SimulationPersonnage.Zone;
+using DesignPatternProject.Simulation;
 
 namespace SimulationPersonnage
 {
 
     class Nageur:Personnage
     {
+        private const int VitesseDefaut = 10;
+        public int Vitesse { get; set; } = VitesseDefaut;
+
         public void Commencer(int nombreTour)
             => ComportementDeplace = new ComportementNage(nombreTour);
-        
+
         public void Arriver()
-            => ComportementDeplace = new ComportemenImmobile();
-        
-        private IList<Modifieur<int>> Mofifieurs { get; } = new List<Modifieur<int>>();
-
-        public int Vitesse { get; set; } = 10;
-
-        public Nageur(string nom) : base(nom, null)
         {
             ComportementDeplace = new ComportemenImmobile();
+            (simulation as NatationSimulation)?.Arrivé(this);
         }
-        public void généré_bonus(int bonus)
+
+        public void GénererBonus(int bonus)
+            => Vitesse = VitesseDefaut + bonus;
+
+        public override void Tick(TickEvent e)
         {
-            Vitesse=+ bonus;
+            var random = new Random();
+            GénererBonus(random.Next(-10, 10));
+            SeDeplacer();
         }
 
-        public void réintialisé()
+        public void Réintialiser()
+            => Vitesse = VitesseDefaut;
+
+        public Nageur(NatationSimulation simulation, string nom) : base(simulation, nom)
         {
-            Vitesse = 10;
-
+            simulation.Attach<FinCourse>(e => Arriver());
+            ComportementDeplace = new ComportementNage(simulation.NombreDeTour);
         }
-
     }
-
-    static class BonusesHelper
-    {
-        public static TValue Appliquer<TValue>(this IEnumerable<Modifieur<TValue>> bonus, TValue start)
-            => bonus.Aggregate(start, (c, mod) => mod(c));
-    }
-
-    internal delegate TValue Modifieur<TValue>(TValue value);
 }

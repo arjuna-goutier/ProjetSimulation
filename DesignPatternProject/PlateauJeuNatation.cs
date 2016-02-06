@@ -9,7 +9,7 @@ namespace DesignPatternProject
 {
     class PlateauJeuNatation : PlateauDeJeu
     {
-
+        /*
         public void AttributionBonus()
         {
             Random rnd = new Random();
@@ -17,7 +17,6 @@ namespace DesignPatternProject
             {
                 per.généré_bonus(rnd.Next(-10, 10));
             }
-
-        }
+        }*/
     }
 }

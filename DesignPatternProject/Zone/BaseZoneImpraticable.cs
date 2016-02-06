@@ -8,7 +8,7 @@ namespace SimulationPersonnage.Zone
 {
     class BaseZoneImpraticable : BaseZone
     {
-        public BaseZoneImpraticable(string nom):base(nom)
+        public BaseZoneImpraticable(string nom, int x, int y):base(nom, x, y)
         {
 
         }

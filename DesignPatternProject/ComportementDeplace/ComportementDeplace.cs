@@ -1,6 +1,6 @@
 ﻿namespace SimulationPersonnage
 {
-    public interface IComportementDeplace
+    interface IComportementDeplace
     {
         void Deplace(Personnage personnage);
     }

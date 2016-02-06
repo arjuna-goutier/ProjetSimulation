@@ -1,22 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SimulationPersonnage.Fabrique;
+using DesignPatternProject.Simulation;
 
 namespace SimulationPersonnage
 {
-    public interface IFabriquePersonnage
+    interface IFabriquePersonnage
     {
-        Personnage CreerPersonnage(string nom, string type);
+        IPersonnage CreerPersonnage(string nom, string type);
     }
 
     class FabriquePersonnage :IFabriquePersonnage
     {
-        public Personnage CreerPersonnage(string nom, string type)
+        public FabriquePersonnage(ISimulation simulation)
         {
-            return new Archer(nom, null);
+            Simulation = simulation;
+        }
+
+        protected ISimulation Simulation { get; }
+        public virtual IPersonnage CreerPersonnage(string nom, string type)
+            => new Personnage(Simulation, nom);
+    }
+
+    class FabriquePersonnageNatation:FabriquePersonnage
+    {
+        public override IPersonnage CreerPersonnage(string nom, string type)
+        {
+            switch (type)
+            {
+                case "nageur":
+                    return new Nageur((NatationSimulation) Simulation, nom);
+                case "spectateur":
+                    return new Spectateur((NatationSimulation) Simulation, nom);
+                default:
+                    throw new Exception("type inconnu");
+            }
+        }
+
+        public FabriquePersonnageNatation(ISimulation simulation) : base(simulation)
+        {
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +11,27 @@ namespace SimulationPersonnage.Fabrique
 {
     interface IFabriqueSimulation
     {
-        IFabriquePlateau CreerPlateauFactory();
-        IFabriqueZone CreerFabriqueZone();
-        IFabriquePersonnage CreerFabriquePersonnage();
-        IFabriqueAcces CreerFabriqueAcces();
+        IFabriquePlateau CreerPlateauFactory(ISimulation simulation);
+        IFabriqueZone CreerFabriqueZone(ISimulation simulation);
+        IFabriquePersonnage CreerFabriquePersonnage(ISimulation simulation);
+        IFabriqueAcces CreerFabriqueAcces(ISimulation simulation);
+        ISimulation CreerSimulation(IDictionary<string, string> arguments);
     }
     class BaseFabriqueSimulation:IFabriqueSimulation
     {
-        public IFabriquePlateau CreerPlateauFactory() 
+        public virtual IFabriquePlateau CreerPlateauFactory(ISimulation simulation) 
             => new FabriquePlateau();
 
-        public IFabriqueZone CreerFabriqueZone() 
+        public virtual IFabriqueZone CreerFabriqueZone(ISimulation simulation) 
             => new FabriqueConcreteZone();
 
-        public IFabriquePersonnage CreerFabriquePersonnage()
-            => new FabriquePersonnage();
+        public virtual IFabriquePersonnage CreerFabriquePersonnage(ISimulation simulation)
+            => new FabriquePersonnage(simulation);
 
-        public IFabriqueAcces CreerFabriqueAcces()
+        public virtual IFabriqueAcces CreerFabriqueAcces(ISimulation simulation)
             => new FabriqueConcreteAcces();
+
+        public virtual ISimulation CreerSimulation(IDictionary<string, string> arguments)
+            => new SimulationDeJeux(arguments);
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimulationPersonnage.Zone
+namespace DesignPatternProject.ComportementNouveauTour
 {
-    interface IFabriqueZone
+    class ComportementNouveauTourSleep
     {
-        IZone CreerZone(IDictionary<string,string> arguments);
+
     }
 }

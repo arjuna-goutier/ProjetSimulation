@@ -114,7 +114,7 @@ namespace DesignPatternProject
 
                     if (zones[i][j].GetType().Name == "BaseZonePraticable")
                     {
-                        if (zones[i][j].isPersonnagesEmtpy() != 0)
+                        if (zones[i][j].Personnages.Any())
                         {
                             Canvas canvas = new Canvas();
                             canvas.Background = couleurPraticable;
@@ -155,6 +155,7 @@ namespace DesignPatternProject
         // Refactor
         public List<List<IZone>> getRoad()
         {
+            /*
             FabriqueConcreteZone fabriqueZone = new FabriqueConcreteZone();
 
             List<IZone> zones = new List<IZone>();
@@ -290,11 +291,14 @@ namespace DesignPatternProject
             allZones.Add(zones9);
 
             return allZones;
+            */
+            return null;
         }
 
         // Refactor
         public List<List<IZone>> getMaze()
         {
+            /*
             FabriqueConcreteZone fabriqueZone = new FabriqueConcreteZone();
 
             List<IZone> zones = new List<IZone>();
@@ -430,6 +434,8 @@ namespace DesignPatternProject
             allZones.Add(zones9);
 
             return allZones;
+            */
+            return null;
         }
     }
 }

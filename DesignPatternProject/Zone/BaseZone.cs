@@ -12,31 +12,39 @@ namespace SimulationPersonnage.Zone
     public interface IZone
     {
         string Nom { get; set; }
-        void AjouterPersonnage(Personnage personnage);
-        void SupprimerPersonnage(Personnage personnage);
+        int X { get; }
+        int Y { get; }
+        void AjouterPersonnage(IPersonnage personnage);
+        void SupprimerPersonnage(IPersonnage personnage);
+        IEnumerable<IPersonnage> Personnages { get; } 
         IEnumerable<IZone> ZoneLimitrophe { get; }
         IList<IAcces> Access { get; }
         void LinkTo<TCreated>(IZone other) where TCreated : IAcces;
-        int isPersonnagesEmtpy();
     }
 
-    public abstract class BaseZone: IZone
+    abstract class BaseZone: IZone
     {
         public string Nom { get; set; }
-        public List<Personnage> Personnages { get; set; } = new List<Personnage>();
+        public int X { get; }
+        public int Y { get; }
+        public List<IPersonnage> Personnages { get; set; } = new List<IPersonnage>();
+        public override string ToString() 
+            => Nom;
 
-
-        protected BaseZone(string nom)
+        protected BaseZone(string nom, int x, int y)
         {
             Nom = nom;
+            X = x;
+            Y = y;
         }
 
-        public void AjouterPersonnage(Personnage personnage)
+        public void AjouterPersonnage(IPersonnage personnage)
         {
             Personnages.Add(personnage);
+            //personnage.Position = this;
         }
 
-        public void SupprimerPersonnage(Personnage personnage)
+        public void SupprimerPersonnage(IPersonnage personnage)
         {
             Personnages.Remove(personnage);
         }
@@ -51,14 +59,12 @@ namespace SimulationPersonnage.Zone
             this.Access.Add(v);
         }
 
-        public int isPersonnagesEmtpy()
-        {
-            return Personnages.Count();
-        }
-
         private readonly IList<IAcces> access = new List<IAcces>();
         public IList<IAcces> Access
             => access;
         public abstract string Description { get; }
+
+        IEnumerable<IPersonnage> IZone.Personnages
+            => Personnages;
     }
 }

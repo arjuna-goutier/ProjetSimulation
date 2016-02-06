@@ -7,7 +7,7 @@ using SimulationPersonnage.Zone;
 
 namespace SimulationPersonnage.Acces
 {
-    public interface IFabriqueAcces
+    interface IFabriqueAcces
     {
         IAcces CreerAcces(IZone zoneFrom, IZone zoneTo, string nom, string type);
     }

@@ -15,3 +15,19 @@ C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternP
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\DesignPatternProject.csprojResolveAssemblyReference.cache
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\Window2.g.cs
 C:\Users\Chaudhry\Documents\Visual Studio 2015\Projects\Simulator\DesignPatternProject\obj\Debug\Window2.baml
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\bin\Debug\DesignPatternProject.exe
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\bin\Debug\DesignPatternProject.pdb
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.csprojResolveAssemblyReference.cache
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\Window1.baml
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\InitWindow.g.cs
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\Window1.g.cs
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\Window2.g.cs
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\MyApp.g.cs
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject_MarkupCompile.cache
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject_MarkupCompile.lref
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\InitWindow.baml
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\Window2.baml
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.g.resources
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.exe
+C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.pdb

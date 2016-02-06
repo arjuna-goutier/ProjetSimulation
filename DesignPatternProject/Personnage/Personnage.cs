@@ -1,39 +1,47 @@
-﻿using SimulationPersonnage.Zone;
+﻿using System.Security.Cryptography.X509Certificates;
+using DesignPatternProject;
+using SimulationPersonnage.Zone;
 
 namespace SimulationPersonnage
 {
-    public abstract class Personnage:Observable, IObservateur<Etat>,IPositionnable
+    class Personnage:IPersonnage
     {
         public string Nom { get; }
-        public Etat Etat { get; set; }
-        public Organisation EtatMajor;
-        public IComportementEmettreUnSon ComportementEmettreUnSon { get; set; }
-        public IComportementCombat ComportementCombat { get; set; }
         public IComportementDeplace ComportementDeplace { get; set; }
-        public IComportementAffichage ComportementAffichage { get; set; }
-        public IZone Position { get; set; }
+        public IZone position;
+        public IZone Position {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                position?.SupprimerPersonnage(this);
+                value.AjouterPersonnage(this);
+                position = value;
+            }
+        }
+        public ISimulation simulation;
 
-        protected Personnage(string nom, Organisation etatMajor)
+        public Personnage(ISimulation simulation, string nom)
         {
             Nom = nom;
-            EtatMajor = etatMajor;
-            EtatMajor?.Attach(this);
+            simulation.Attach<TickEvent>(Tick);
+            this.simulation = simulation;
         }
 
-        public string Afficher()
-            => ComportementAffichage?.Afficher(this) ?? "Je refuse de divulguer mon identité";
-        
-        public virtual string Combat()
-            => ComportementCombat?.Combatre() ?? "Je ne peut pas combatre";
-
-        public string EmettreSon()
-            => ComportementEmettreUnSon?.EmettreUnSon() ?? "Je ne peut pas parler";
+        public virtual void Tick(TickEvent e) { }
 
         public void SeDeplacer()
             => ComportementDeplace?.Deplace(this);
 
-        public void Update(Etat etat)
-            => Etat = etat;
+        public override string ToString()
+            => Nom;
+    }
+
+    public interface IPersonnage:IPositionnable
+    {
+        string Nom { get; }
     }
 
     public interface IPositionnable

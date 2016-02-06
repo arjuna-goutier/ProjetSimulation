@@ -9,7 +9,7 @@ namespace SimulationPersonnage
     internal class ComportementNage : IComportementDeplace
     {
         private int nombreTour;
-        private bool IsAllée = true;
+        private bool isAllée = true;
         public ComportementNage(int nombreTour)
         {
             this.nombreTour = nombreTour;
@@ -17,12 +17,14 @@ namespace SimulationPersonnage
 
         public void Deplace(Personnage personnage)
         {
-            var nageur = (Nageur)personnage;
+            var nageur = (Nageur) personnage;//seul les nageur nagent
             var vitesse = nageur.Vitesse;
 
+            // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (var i in Enumerable.Range(0, vitesse))
-                if(AvenceUneCase(nageur) == false)
+                if (AvenceUneCase(nageur) == false)
                     return;
+            Console.WriteLine($"{nageur} : {nageur.Position}");
         }
 
         private bool AvenceUneCase(Nageur nageur)
@@ -30,12 +32,12 @@ namespace SimulationPersonnage
             var current = (ZonePiscine)nageur.Position;
             var possibles = current.ZoneLimitrophe
                 .OfType<ZonePiscine>();
-            var next = IsAllée 
-                ? possibles.MaxBy(zone => zone.Numero) 
+            var next = isAllée 
+                ? possibles.MaxBy(zone => zone.Numero)
                 : possibles.MinBy(zone => zone.Numero);
-            if ((IsAllée && next.Numero < current.Numero) || (!IsAllée && next.Numero > current.Numero))
+            if ((isAllée && next.Numero < current.Numero) || (!isAllée && next.Numero > current.Numero))
             {
-                IsAllée = !IsAllée;
+                isAllée = !isAllée;
                 if (--nombreTour == 0)
                 {
                     nageur.Arriver();
@@ -43,10 +45,8 @@ namespace SimulationPersonnage
                 }
             }
             nageur.Position = next;
-            Console.WriteLine($"{next.Numero}");
             return true;
         }
-
     }
 
     static class EnumerableExtensions
@@ -83,8 +83,8 @@ namespace SimulationPersonnage
           where U : IComparable<U>
         {
             if (source == null) throw new ArgumentNullException("source");
-            T minObj = default(T);
-            U minKey = default(U);
+            var minObj = default(T);
+            var minKey = default(U);
             foreach (var item in source)
             {
                 var currentKey = selector(item);

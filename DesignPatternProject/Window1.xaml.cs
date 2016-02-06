@@ -5,6 +5,10 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System;
+using System.Linq;
+using DesignPatternProject.SimulationReader;
+using DesignPatternProject.Zone;
+using SimulationPersonnage;
 
 namespace DesignPatternProject
 {
@@ -14,11 +18,11 @@ namespace DesignPatternProject
 
     public partial class Window1 : Window
     {
-        const int _nombreCase = 20;
+        const int NombreCase = 20;
         bool isSimulationRunning = false;
 
-        int NageursNb { get; set; }
-        int ToursNb { get; set; }
+        private int NageursNb { get; set; }
+        private int ToursNb { get; set; }
 
         public Window1()
         {
@@ -27,67 +31,82 @@ namespace DesignPatternProject
 
         private void launcherBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!isSimulationRunning)
+            if (isSimulationRunning)
+                return;
+            isSimulationRunning = true;
+            var emptyTextBoxs = string.IsNullOrWhiteSpace(nageurTextBox.Text) 
+                             || string.IsNullOrWhiteSpace(toursTextBox.Text);
+
+            if (emptyTextBoxs)
             {
-                isSimulationRunning = true;
-                bool emptyTextBoxs = false;
-
-                if (string.IsNullOrWhiteSpace(nageurTextBox.Text) || string.IsNullOrWhiteSpace(toursTextBox.Text))
-                {
-                    emptyTextBoxs = true;
-                }
-
-                if (emptyTextBoxs == true)
-                {
-                    showInformationBox();
-                    return;
-                }
-                else
-                {
-                    NageursNb = int.Parse(nageurTextBox.Text);
-                    ToursNb = int.Parse(toursTextBox.Text);
-                    initialiserPiscine();
-                }
+                ShowInformationBox();
+                return;
             }
+            NageursNb = int.Parse(nageurTextBox.Text);
+            ToursNb = int.Parse(toursTextBox.Text);
+            InitialiserPiscine();
         }
 
-        private void showInformationBox()
+        private static void ShowInformationBox() 
+            => MessageBox.Show("Merci de remplir tous les champs", "Simulation", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        public void InitialiserPiscine()
         {
-            MessageBox.Show("Merci de remplir tous les champs", "Simulation", MessageBoxButton.OK, MessageBoxImage.Information);
+            /*
+            var zones = InitialiserZones();
+            InitialiserGrid();
+            FillGrid(zones);
+            */
+            var reader = new NageSimulationReader {
+                LongueurPiscine = NombreCase,
+                NombreNageur = NageursNb,
+                NombreSpectateur = 0,
+                NombreTour = ToursNb
+            };
+            var generateur = new GenerateurJeu();
+            var simulation = generateur.GenererJeux(reader);
+            InitialiserGrid();
+            //simulation.Simuler();
+            FillGrid(simulation.Plateau.Grille);
+            simulation.Attach<EndTurnEvent>(e => 
+                FillGrid(simulation.Plateau.Grille)
+            );
+            simulation.Simuler();
         }
-
-        public void initialiserPiscine()
+        
+        public List<List<IZone>> InitialiserZones()
         {
-            List<List<IZone>> zones = new List<List<IZone>>();
-            zones = initialiserZones();
+            var fabriqueZone = new FabriqueZoneNatation();
+            var zones = new List<List<IZone>>();
 
-            initialiserGrid();
-            fillGrid(zones);
-        }
-
-        public List<List<IZone>> initialiserZones()
-        {
-            FabriqueConcreteZone fabriqueZone = new FabriqueConcreteZone();
-            List<List<IZone>> zones = new List<List<IZone>>();
-
-            for (int i = 0; i < NageursNb; i++)
+            for (var i = 0; i < NageursNb; i++)
             {
-                List<IZone> listeZonePraticable = new List<IZone>();
-                for (int j = 0; j < _nombreCase; j++)
+                var listeZonePraticable = new List<IZone>();
+                for (var j = 0; j < NombreCase; j++)
                 {
-                    listeZonePraticable.Add(fabriqueZone.CreerZone("Patricable", "zone" + j));
+                    listeZonePraticable.Add(fabriqueZone.CreerZone(new Dictionary<string, string> {
+                       ["nom"] = $"({i},{j}",
+                       ["x"] = j.ToString(),
+                       ["y"] = i.ToString(),
+                       ["type"] = "piscine",
+                       ["numero"] = j.ToString()
+                    }));
                 }
                 zones.Add(listeZonePraticable);
 
-                if (i != NageursNb - 1)
+                if (i == NageursNb - 1)
+                    continue;
+                var listeZoneImpraticable = new List<IZone>();
+                for (var j = 0; j < NombreCase; j++)
                 {
-                    List<IZone> listeZoneImpraticable = new List<IZone>();
-                    for (int j = 0; j < _nombreCase; j++)
-                    {
-                        listeZoneImpraticable.Add(fabriqueZone.CreerZone("Impraticable", "zone" + j));
-                    }
-                    zones.Add(listeZoneImpraticable);
+                    listeZoneImpraticable.Add(fabriqueZone.CreerZone(new Dictionary<string, string> {
+                        ["nom"] = $"({i},{j}",
+                        ["x"] = j.ToString(),
+                        ["y"] = i.ToString(),
+                        ["type"] = "separation"
+                    }));
                 }
+                zones.Add(listeZoneImpraticable);
             }
 
             //SimulationPersonnage.Personnage p = new SimulationPersonnage.Ninja("Pierre", new SimulationPersonnage.Organisation("gg"));
@@ -96,47 +115,49 @@ namespace DesignPatternProject
             return zones;
         }
 
-        public void initialiserGrid()
+        public void InitialiserGrid()
         {
-            for (int k = 0; k < NageursNb; k++)
+            for (var k = 0; k < NageursNb; k++)
             {
-                RowDefinition row = new RowDefinition();
-                row.Height = new GridLength(1, GridUnitType.Star);
-                PlateauGrid.RowDefinitions.Add(row);
+                PlateauGrid.RowDefinitions.Add(new RowDefinition {
+                    Height = new GridLength(1, GridUnitType.Star)
+                });
 
-                if (k != NageursNb - 1)
-                {
-                    RowDefinition row2 = new RowDefinition();
-                    row2.Height = new GridLength(0.2, GridUnitType.Star);
-                    PlateauGrid.RowDefinitions.Add(row2);
-                }
+                if (k == NageursNb - 1) continue;
+                PlateauGrid.RowDefinitions.Add(new RowDefinition {
+                    Height = new GridLength(0.2, GridUnitType.Star)
+                });
             }
 
-            for (int l = 0; l < _nombreCase; l++)
+            for (var l = 0; l < NombreCase; l++)
             {
                 PlateauGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
         }
 
-        public void fillGrid(List<List<IZone>> zones)
+        public void FillGrid(IEnumerable<IEnumerable<IZone>> _zones)
         {
-            for (int i = 0; i < zones.Count; i++)
+            var zones = _zones.Select(l => l.ToList()).ToList();
+
+            for (var i = 0; i < zones.Count; i++)
             {
-                for (int j = 0; j < zones[i].Count; j++)
+                for (var j = 0; j < zones[i].Count; j++)
                 {
-                    Rectangle rectangle = new Rectangle();
+                    var rectangle = new Rectangle();
 
-                    if (zones[i][j].GetType().Name == "BaseZonePraticable")
+                    if (zones[i][j] is ZonePiscine)
                     {
-                        if (zones[i][j].isPersonnagesEmtpy() != 0)
+                        if (zones[i][j].Personnages.Any())
                         {
-                            Canvas canvas = new Canvas();
-                            canvas.Background = new SolidColorBrush(Colors.Aquamarine);
+                            var canvas = new Canvas {
+                                Background = new SolidColorBrush(Colors.Aquamarine)
+                            };
 
-                            Ellipse ellipse = new Ellipse();
-                            ellipse.Fill = new SolidColorBrush(Colors.Beige);
-                            ellipse.Width = 15;
-                            ellipse.Height = 15;
+                            var ellipse = new Ellipse {
+                                Fill = new SolidColorBrush(Colors.Beige),
+                                Width = 15,
+                                Height = 15
+                            };
 
                             Canvas.SetLeft(ellipse, 15);
                             Canvas.SetTop(ellipse, 15);
@@ -145,7 +166,8 @@ namespace DesignPatternProject
                             Grid.SetColumn(canvas, j);
                             Grid.SetRow(canvas, i);
                             PlateauGrid.Children.Add(canvas);
-                        } else
+                        }
+                        else
                         {
                             rectangle.Fill = new SolidColorBrush(Colors.Aquamarine);
 
@@ -164,5 +186,19 @@ namespace DesignPatternProject
                 }
             }
         }
+    }
+
+    static class EnumerableHelper
+    {
+        public class IndexValue<TValue>
+        {
+            public int Index { get; set; }
+            public TValue Value { get; set; }
+        }
+        public static IEnumerable<IndexValue<TValue>> Indexed<TValue>(this IEnumerable<TValue> source)
+            => source.Select((x, i) => new IndexValue<TValue> {
+                Index = i,
+                Value = x
+            });
     }
 }

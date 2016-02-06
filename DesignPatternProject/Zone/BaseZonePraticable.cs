@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SimulationPersonnage.Zone
 {
-    public class BaseZonePraticable : BaseZone
+    class BaseZonePraticable : BaseZone
     {
-        public BaseZonePraticable(string nom) : base(nom)
+        public BaseZonePraticable(string nom, int x, int y) : base(nom, x, y)
         {
 
         }
