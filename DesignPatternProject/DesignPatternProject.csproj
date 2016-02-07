@@ -57,6 +57,7 @@
     <Compile Include="Acces\FabriqueAcces.cs" />
     <Compile Include="Acces\FabriqueConcreteAcces.cs" />
     <Compile Include="ComportementDeplace\ComportemenImmobile.cs" />
+    <Compile Include="ComportementDeplace\ComportementAlleràArrivé.cs" />
     <Compile Include="ComportementDeplace\ComportementDeplace.cs" />
     <Compile Include="ComportementDeplace\ComportementNage.cs" />
     <Compile Include="ComportementNouveauTour\ComportementNouveauTour.cs" />
@@ -77,10 +78,12 @@
     <Compile Include="Observateur\IObservateur.cs" />
     <Compile Include="Observateur\Observable.cs" />
     <Compile Include="Personnage\FabriquePersonnage.cs" />
+    <Compile Include="Personnage\FeuTricolor.cs" />
     <Compile Include="Personnage\HumainFantome.cs" />
     <Compile Include="Personnage\Nageur.cs" />
     <Compile Include="Personnage\Personnage.cs" />
     <Compile Include="Personnage\Spectateur.cs" />
+    <Compile Include="Personnage\Voiture.cs" />
     <Compile Include="PlateauJeuNatation.cs" />
     <Compile Include="Plateau\PlateauFactory.cs" />
     <Compile Include="Program.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Simulation\NatationSimulation.cs" />
     <Compile Include="Simulation\SimulationDeJeucs.cs" />
     <Compile Include="Simulation\TimeEvents.cs" />
+    <Compile Include="Simulation\TraficRoutierSimulation.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -103,8 +107,13 @@
     <Compile Include="Zone\FabriqueZone.cs" />
     <Compile Include="Zone\FabriqueZoneNatation.cs" />
     <Compile Include="Zone\FabriqueZoneVehicule.cs" />
+    <Compile Include="Zone\ZoneBatiment.cs" />
+    <Compile Include="Zone\ZoneEntré.cs" />
     <Compile Include="Zone\ZonePiscine.cs" />
+    <Compile Include="Zone\ZoneRoute.cs" />
     <Compile Include="Zone\ZoneSeparation.cs" />
+    <Compile Include="Zone\ZoneSortie.cs" />
+    <Compile Include="Zone\ZoneSpectateur.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
