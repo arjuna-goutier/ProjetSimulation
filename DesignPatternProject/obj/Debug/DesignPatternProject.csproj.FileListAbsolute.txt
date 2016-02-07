@@ -31,3 +31,19 @@ C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\Window2.bam
 C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.g.resources
 C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.exe
 C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\bin\Debug\DesignPatternProject.exe
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\bin\Debug\DesignPatternProject.pdb
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\DesignPatternProject.csprojResolveAssemblyReference.cache
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\Window1.baml
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\InitWindow.g.cs
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\Window1.g.cs
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\Window2.g.cs
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\MyApp.g.cs
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\DesignPatternProject_MarkupCompile.cache
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\DesignPatternProject_MarkupCompile.lref
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\InitWindow.baml
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\Window2.baml
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\DesignPatternProject.g.resources
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\DesignPatternProject.exe
+C:\Users\Hussam\Documents\Visual Studio 2015\Projects\DesignPatternProject\obj\Debug\DesignPatternProject.pdb

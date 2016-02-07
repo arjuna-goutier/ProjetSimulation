@@ -16,6 +16,8 @@ namespace DesignPatternProject.Zone
                     return new ZoneBord(arguments["nom"], int.Parse(arguments["x"]), int.Parse(arguments["y"]));
                 case "separation":
                     return new ZoneSeparation(arguments["nom"], int.Parse(arguments["x"]), int.Parse(arguments["y"]));
+                case "gradin":
+                    return new ZoneSpectateur(arguments["nom"], int.Parse(arguments["x"]), int.Parse(arguments["y"]));
                 default:
                     throw new Exception("");
             }

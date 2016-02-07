@@ -105,6 +105,7 @@
     <Compile Include="Zone\FabriqueZoneVehicule.cs" />
     <Compile Include="Zone\ZonePiscine.cs" />
     <Compile Include="Zone\ZoneSeparation.cs" />
+    <Compile Include="Zone\ZoneSpectateur.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

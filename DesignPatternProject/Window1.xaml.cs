@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.ComponentModel;
+using System;
 using System.Linq;
 using DesignPatternProject.SimulationReader;
 using DesignPatternProject.Zone;
@@ -60,25 +60,18 @@ namespace DesignPatternProject
             var reader = new NageSimulationReader {
                 LongueurPiscine = NombreCase,
                 NombreNageur = NageursNb,
-                NombreSpectateur = 5,
+                NombreSpectateur = 0,
                 NombreTour = ToursNb
             };
             var generateur = new GenerateurJeu();
             var simulation = generateur.GenererJeux(reader);
             InitialiserGrid();
-            FillGrid(simulation.Plateau.Grille);
             //simulation.Simuler();
-            var worker = new BackgroundWorker {WorkerReportsProgress = true};
-            worker.DoWork += (s, e) => {
-                var w = (BackgroundWorker) s;
-                simulation.Attach<EndTurnEvent>(e2 => w.ReportProgress(0));
-                simulation.Simuler();
-            };
-            worker.ProgressChanged += (s, e) =>
-            {
-                FillGrid(simulation.Plateau.Grille);
-            };
-            worker.RunWorkerAsync();
+            FillGrid(simulation.Plateau.Grille);
+            simulation.Attach<EndTurnEvent>(e => 
+                FillGrid(simulation.Plateau.Grille)
+            );
+            simulation.Simuler();
         }
         
         public List<List<IZone>> InitialiserZones()
@@ -103,6 +96,7 @@ namespace DesignPatternProject
 
                 if (i == NageursNb - 1)
                     continue;
+
                 var listeZoneImpraticable = new List<IZone>();
                 for (var j = 0; j < NombreCase; j++)
                 {
@@ -116,9 +110,6 @@ namespace DesignPatternProject
                 zones.Add(listeZoneImpraticable);
             }
 
-            //SimulationPersonnage.Personnage p = new SimulationPersonnage.Ninja("Pierre", new SimulationPersonnage.Organisation("gg"));
-            //zones[0][17].AjouterPersonnage(p);
-
             return zones;
         }
 
@@ -131,6 +122,14 @@ namespace DesignPatternProject
                 });
 
                 if (k == NageursNb - 1) continue;
+                /*if (k == NageursNb - 1)
+                {
+                    PlateauGrid.RowDefinitions.Add(new RowDefinition
+                    {
+                        Height = new GridLength(0.8, GridUnitType.Star)
+                    });
+                }*/
+
                 PlateauGrid.RowDefinitions.Add(new RowDefinition {
                     Height = new GridLength(0.2, GridUnitType.Star)
                 });
@@ -193,24 +192,24 @@ namespace DesignPatternProject
                     else
                     {
                         var canvas = new Canvas {
-                           Background = new SolidColorBrush(Colors.LightYellow)
+                            Background = new SolidColorBrush(Colors.LightYellow)
                         };
                         var ellipse = new Ellipse {
                             Fill = new SolidColorBrush(Colors.Green),
                             Width = 15,
                             Height = 15
                         };
+
                         Canvas.SetLeft(ellipse, 20);
                         Canvas.SetTop(ellipse, 25);
                         canvas.Children.Add(ellipse);
-                        
+
                         Grid.SetColumn(canvas, j);
                         Grid.SetRow(canvas, i);
                         PlateauGrid.Children.Add(canvas);
                     }
                 }
             }
-            
         }
     }
 
