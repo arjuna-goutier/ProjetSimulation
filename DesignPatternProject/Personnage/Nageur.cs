@@ -6,7 +6,8 @@ namespace SimulationPersonnage
 
     class Nageur:Personnage
     {
-        private const int VitesseDefaut = 10;
+        private const int VitesseDefaut = 2;
+        private static readonly Random random = new Random();
         public int Vitesse { get; set; } = VitesseDefaut;
 
         public void Commencer(int nombreTour)
@@ -19,12 +20,11 @@ namespace SimulationPersonnage
         }
 
         public void GénererBonus(int bonus)
-            => Vitesse = VitesseDefaut + bonus;
+            => Vitesse = Math.Max(0, VitesseDefaut + bonus);
 
         public override void Tick(TickEvent e)
         {
-            var random = new Random();
-            GénererBonus(random.Next(-10, 10));
+            GénererBonus(random.Next(0, 3));
             SeDeplacer();
         }
 

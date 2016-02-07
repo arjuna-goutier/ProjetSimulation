@@ -19,7 +19,7 @@ namespace SimulationPersonnage
         {
         }
 
-        private  const int TimeToSleep = 0;
+        private  const int TimeToSleep = 1000;
         public virtual bool EstFinis { get; protected set; }
 
         public void Simuler()
@@ -27,6 +27,7 @@ namespace SimulationPersonnage
             Raise(new BeginEvent());
             while (!EstFinis)
             {
+                WaitNextTurn();
                 Tick();
                 Raise(new EndTurnEvent());
             }

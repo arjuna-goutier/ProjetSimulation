@@ -102,6 +102,7 @@
     <Compile Include="Zone\FabriqueConcreteZone.cs" />
     <Compile Include="Zone\FabriqueZone.cs" />
     <Compile Include="Zone\FabriqueZoneNatation.cs" />
+    <Compile Include="Zone\FabriqueZoneVehicule.cs" />
     <Compile Include="Zone\ZonePiscine.cs" />
     <Compile Include="Zone\ZoneSeparation.cs" />
   </ItemGroup>

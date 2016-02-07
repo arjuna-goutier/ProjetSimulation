@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System;
+using System.ComponentModel;
 using System.Linq;
 using DesignPatternProject.SimulationReader;
 using DesignPatternProject.Zone;
@@ -60,18 +60,25 @@ namespace DesignPatternProject
             var reader = new NageSimulationReader {
                 LongueurPiscine = NombreCase,
                 NombreNageur = NageursNb,
-                NombreSpectateur = 0,
+                NombreSpectateur = 5,
                 NombreTour = ToursNb
             };
             var generateur = new GenerateurJeu();
             var simulation = generateur.GenererJeux(reader);
             InitialiserGrid();
-            //simulation.Simuler();
             FillGrid(simulation.Plateau.Grille);
-            simulation.Attach<EndTurnEvent>(e => 
-                FillGrid(simulation.Plateau.Grille)
-            );
-            simulation.Simuler();
+            //simulation.Simuler();
+            var worker = new BackgroundWorker {WorkerReportsProgress = true};
+            worker.DoWork += (s, e) => {
+                var w = (BackgroundWorker) s;
+                simulation.Attach<EndTurnEvent>(e2 => w.ReportProgress(0));
+                simulation.Simuler();
+            };
+            worker.ProgressChanged += (s, e) =>
+            {
+                FillGrid(simulation.Plateau.Grille);
+            };
+            worker.RunWorkerAsync();
         }
         
         public List<List<IZone>> InitialiserZones()
@@ -176,15 +183,34 @@ namespace DesignPatternProject
                             PlateauGrid.Children.Add(rectangle);
                         }
                     }
-                    else
+                    else if (zones[i][j] is ZoneSeparation)
                     {
                         rectangle.Fill = new SolidColorBrush(Colors.DimGray);
                         Grid.SetColumn(rectangle, j);
                         Grid.SetRow(rectangle, i);
                         PlateauGrid.Children.Add(rectangle);
                     }
+                    else
+                    {
+                        var canvas = new Canvas {
+                           Background = new SolidColorBrush(Colors.LightYellow)
+                        };
+                        var ellipse = new Ellipse {
+                            Fill = new SolidColorBrush(Colors.Green),
+                            Width = 15,
+                            Height = 15
+                        };
+                        Canvas.SetLeft(ellipse, 20);
+                        Canvas.SetTop(ellipse, 25);
+                        canvas.Children.Add(ellipse);
+                        
+                        Grid.SetColumn(canvas, j);
+                        Grid.SetRow(canvas, i);
+                        PlateauGrid.Children.Add(canvas);
+                    }
                 }
             }
+            
         }
     }
 

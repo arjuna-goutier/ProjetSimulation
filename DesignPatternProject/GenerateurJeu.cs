@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.Versioning;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using SimulationPersonnage.Acces;
-using SimulationPersonnage.Fabrique;
 using SimulationPersonnage.Zone;
 
 namespace SimulationPersonnage
@@ -16,6 +9,7 @@ namespace SimulationPersonnage
     {
         ISimulation GenererJeux(ISimulationReader reader);
     }
+
 
     class GenerateurJeu:IGenerateurJeu
     {

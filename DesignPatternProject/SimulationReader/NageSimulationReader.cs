@@ -24,7 +24,7 @@ namespace DesignPatternProject.SimulationReader
             });
             for (var y = 0; y < NombreNageur * 2; ++y)
             {
-                if (y%2 != 0) {
+                if (y%2 != 0 && y != NombreNageur * 2 - 1) {
                     for (var x = 0; x < LongueurPiscine; ++x)
                         yield return new Readed(ESimulationObjectType.Zone, new Dictionary<string, string> {
                             ["type"] = "separation",
@@ -58,7 +58,6 @@ namespace DesignPatternProject.SimulationReader
                         ["numero"] = x.ToString(),
                         ["x"] = x.ToString(),
                         ["y"] = y.ToString()
-
                     });
 
                     yield return new Readed(ESimulationObjectType.Acces, new Dictionary<string, string> {
@@ -70,14 +69,28 @@ namespace DesignPatternProject.SimulationReader
 
                     if (y > 0)
                     {
-                        /*
-                        yield return new Readed(ESimulationObjectType.Acces, new Dictionary<string, string>
-                        {
-                            ["type"] = "Praticable",
+                    }
+                }
+
+            }
+            int compteur = 0;
+            for (var y = NombreNageur * 2; y <= NombreNageur * 2 + Math.Floor((decimal)NombreSpectateur/ LongueurPiscine); ++y)
+            {
+                for (var x = 0; x < LongueurPiscine; ++x)
+                {
+                    yield return new Readed(ESimulationObjectType.Zone, new Dictionary<string, string> {
+                        ["type"] = "bord",
+                        ["nom"] = Coordonnées(x, y),
+                        ["x"] = x.ToString(),
+                        ["y"] = y.ToString()
+                    });
+                    if (NombreSpectateur < compteur++)
+                    {
+                        yield return new Readed(ESimulationObjectType.Personnage, new Dictionary<string, string> {
                             ["nom"] = Guid.NewGuid().ToString(),
-                            ["to"] = Coordonnées(x, y - 1),
-                            ["from"] = Coordonnées(x, y)
-                        });*/
+                            ["type"] = "spectateur",
+                            ["at"] = Coordonnées(x, y),
+                        });
                     }
                 }
             }
