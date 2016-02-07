@@ -1,5 +1,5 @@
 ﻿using System;
-using DesignPatternProject.Simulation;
+using SimulationPersonnage;
 
 namespace SimulationPersonnage
 {
@@ -39,4 +39,25 @@ namespace SimulationPersonnage
         {
         }
     }
+
+    class FabriquePersonnageTraficRoutier : FabriquePersonnage
+    {
+        public FabriquePersonnageTraficRoutier(ISimulation simulation) : base (simulation)
+        {
+
+        }
+        public override IPersonnage CreerPersonnage(string nom, string type)
+        {
+            switch (type)
+            {
+                case "voiture":
+                    return new Voiture(Simulation, nom);
+                case "feuTricolor":
+                    return new FeuTricolor(Simulation, nom);
+                default:
+                    throw new Exception("type inconnu");
+            }
+        }
+    }
+
 }

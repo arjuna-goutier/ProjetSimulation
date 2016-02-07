@@ -22,9 +22,10 @@ namespace SimulationPersonnage.Zone
         void LinkTo<TCreated>(IZone other) where TCreated : IAcces;
     }
 
-    abstract class BaseZone: IZone
+    public abstract class BaseZone: IZone
     {
         public string Nom { get; set; }
+
         public int X { get; }
         public int Y { get; }
         public List<IPersonnage> Personnages { get; set; } = new List<IPersonnage>();

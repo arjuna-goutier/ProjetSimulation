@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using SimulationPersonnage.Zone;
 
-namespace DesignPatternProject.Zone
+namespace SimulationPersonnage.Zone
 {
     class ZonePiscine: BaseZone
     {
@@ -10,6 +10,7 @@ namespace DesignPatternProject.Zone
         public ZonePiscine(string nom, int numero, int x, int y) : base(nom, x, y)
         {
             Numero = numero;
+
         }
 
         public override string Description

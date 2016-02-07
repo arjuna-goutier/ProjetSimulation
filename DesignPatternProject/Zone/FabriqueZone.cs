@@ -9,5 +9,6 @@ namespace SimulationPersonnage.Zone
     interface IFabriqueZone
     {
         IZone CreerZone(IDictionary<string,string> arguments);
+
     }
 }
