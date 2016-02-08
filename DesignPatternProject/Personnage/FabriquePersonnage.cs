@@ -3,12 +3,12 @@ using DesignPatternProject.Simulation;
 
 namespace SimulationPersonnage
 {
-    interface IFabriquePersonnage
+    public interface IFabriquePersonnage
     {
         IPersonnage CreerPersonnage(string nom, string type);
     }
 
-    class FabriquePersonnage :IFabriquePersonnage
+    public class FabriquePersonnage :IFabriquePersonnage
     {
         public FabriquePersonnage(ISimulation simulation)
         {
@@ -20,7 +20,7 @@ namespace SimulationPersonnage
             => new Personnage(Simulation, nom);
     }
 
-    class FabriquePersonnageNatation:FabriquePersonnage
+    public class FabriquePersonnageNatation :FabriquePersonnage
     {
         public override IPersonnage CreerPersonnage(string nom, string type)
         {

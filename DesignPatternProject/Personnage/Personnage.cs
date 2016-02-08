@@ -30,7 +30,10 @@ namespace SimulationPersonnage
             this.simulation = simulation;
         }
 
-        public virtual void Tick(TickEvent e) { }
+        public virtual void Tick(TickEvent e)
+        {
+            ComportementDeplace?.Deplace(this);
+        }
 
         public void SeDeplacer()
             => ComportementDeplace?.Deplace(this);

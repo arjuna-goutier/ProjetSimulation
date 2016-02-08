@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimulationPersonnage.Zone
 {
-    interface IFabriqueZone
+    public interface IFabriqueZone
     {
         IZone CreerZone(IDictionary<string,string> arguments);
     }

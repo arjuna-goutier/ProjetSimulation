@@ -7,13 +7,13 @@ using DesignPatternProject;
 
 namespace SimulationPersonnage
 {
-    interface ISimulation:IObservable<TimeEvent>
+    public interface ISimulation:IObservable<TimeEvent>
     {
         void Simuler();
         IPlateau Plateau { get; set; }
     }
 
-    class SimulationDeJeux:Observable<TimeEvent>, ISimulation
+    public class SimulationDeJeux:Observable<TimeEvent>, ISimulation
     {
         public SimulationDeJeux(IDictionary<string, string> arguments)
         {
