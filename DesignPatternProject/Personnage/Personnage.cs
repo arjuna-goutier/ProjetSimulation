@@ -4,7 +4,7 @@ using SimulationPersonnage.Zone;
 
 namespace SimulationPersonnage
 {
-    class Personnage:IPersonnage
+   public  class Personnage:IPersonnage
     {
         public string Nom { get; }
         public IComportementDeplace ComportementDeplace { get; set; }
@@ -30,8 +30,7 @@ namespace SimulationPersonnage
             this.simulation = simulation;
         }
 
-        public virtual void Tick(TickEvent e)
-        {
+        public virtual void Tick(TickEvent e) {
             ComportementDeplace?.Deplace(this);
         }
 
@@ -41,6 +40,7 @@ namespace SimulationPersonnage
         public override string ToString()
             => Nom;
     }
+
 
     public interface IPersonnage:IPositionnable
     {
