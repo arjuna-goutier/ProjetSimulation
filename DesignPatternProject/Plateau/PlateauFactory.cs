@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SimulationPersonnage
 {
-    interface IFabriquePlateau
+    public interface IFabriquePlateau
     {
         IPlateau CreerPlateau();
     }

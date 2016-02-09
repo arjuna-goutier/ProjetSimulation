@@ -29,7 +29,7 @@ namespace SimulationPersonnage
             => new BaseFabriqueSimulation();
     }
 
-    internal interface IReaded
+    public interface IReaded
     {
         string this[string key] { get; }
         IDictionary<string,string> arguments { get; }
@@ -55,7 +55,7 @@ namespace SimulationPersonnage
     }
 
 
-    internal enum ESimulationObjectType
+    public enum ESimulationObjectType
     {
         Simulation,
         Personnage,

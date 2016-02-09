@@ -9,7 +9,7 @@ using SimulationPersonnage.Zone;
 
 namespace SimulationPersonnage.Fabrique
 {
-    interface IFabriqueSimulation
+    public interface IFabriqueSimulation
     {
         IFabriquePlateau CreerPlateauFactory(ISimulation simulation);
         IFabriqueZone CreerFabriqueZone(ISimulation simulation);

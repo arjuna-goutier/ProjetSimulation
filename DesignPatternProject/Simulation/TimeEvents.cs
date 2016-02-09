@@ -4,15 +4,15 @@ namespace SimulationPersonnage
 {
     public class TimeEvent : Event<SimulationDeJeux> { }
     //raised at the start of the simulation
-    class BeginEvent : TimeEvent { }
-    class BeginCourse : TimeEvent { }
-    class FinCourse : TimeEvent { }
+    public class BeginEvent : TimeEvent { }
+    public class BeginCourse : TimeEvent { }
+    public class FinCourse : TimeEvent { }
     //raised at the end of the 
-    class EndEvent : TimeEvent { }
+    public class EndEvent : TimeEvent { }
 
     //raised a each turn
-    class TickEvent : TimeEvent { }
+    public class TickEvent : TimeEvent { }
 
     //a la fin du tour, notament pour l'interface graphique
-    class EndTurnEvent :TimeEvent { }
+    public class EndTurnEvent :TimeEvent { }
 }

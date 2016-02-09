@@ -5,14 +5,14 @@ using System.Linq;
 namespace SimulationPersonnage
 {
 
-    public  abstract class Event<TSource>
+    public abstract class Event<TSource>
     {
         public TSource Source { get; set; }
     }
 
     public delegate void EventHandler<in T>(T t);
 
-   public  interface IObservable<in TEvent>
+    public interface IObservable<in TEvent>
     {
         void Attach<T>(EventHandler<T> observateur) where T : TEvent;
         void Detach<T>(IObservateur<T> observateur) where T : TEvent;
