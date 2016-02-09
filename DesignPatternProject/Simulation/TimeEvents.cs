@@ -2,7 +2,7 @@
 
 namespace SimulationPersonnage
 {
-    class TimeEvent : Event<SimulationDeJeux> { }
+    public class TimeEvent : Event<SimulationDeJeux> { }
     //raised at the start of the simulation
     class BeginEvent : TimeEvent { }
     class BeginCourse : TimeEvent { }

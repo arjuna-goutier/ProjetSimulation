@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SimulationPersonnage
 {
-    interface ISimulation
+   public interface ISimulation
     {
         void Commencer();
     }
 
-    class SimulationDeJeux:ISimulation
+    public class SimulationDeJeux:ISimulation
     {
         public void Commencer()
         {

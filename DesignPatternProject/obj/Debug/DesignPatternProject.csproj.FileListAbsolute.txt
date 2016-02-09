@@ -31,3 +31,6 @@ C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\Window2.bam
 C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.g.resources
 C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.exe
 C:\Users\Moi\dp_proj\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.pdb
+C:\Users\ghersi cherifa\Desktop\Design Pattern\ProjetSimulation\DesignPatternProject\bin\Debug\DesignPatternProject.exe.config
+C:\Users\ghersi cherifa\Desktop\Design Pattern\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.exe
+C:\Users\ghersi cherifa\Desktop\Design Pattern\ProjetSimulation\DesignPatternProject\obj\Debug\DesignPatternProject.pdb

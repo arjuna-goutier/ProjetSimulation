@@ -17,7 +17,7 @@ namespace SimulationPersonnage
             => new PlateauDeJeu();
     }
 
-    interface IPlateau
+    public interface IPlateau
     {
         void AjouterAcces(IAcces acces);
         void AjouterZone(IZone zone);
